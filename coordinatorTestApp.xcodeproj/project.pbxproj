@@ -22,7 +22,14 @@
 		3744121120AE5B6A003597A4 /* RepositoryListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3744121020AE5B6A003597A4 /* RepositoryListViewController.storyboard */; };
 		3744121520AEA18A003597A4 /* RepositoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121320AEA18A003597A4 /* RepositoryListTableViewController.swift */; };
 		3744121620AEA18A003597A4 /* RepositoryListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */; };
-		3744121A20AEAEFA003597A4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121920AEAEFA003597A4 /* Repository.swift */; };
+		3744121A20AEAEFA003597A4 /* RepositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121920AEAEFA003597A4 /* RepositoryEntity.swift */; };
+		3744121E20AEC51A003597A4 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121D20AEC51A003597A4 /* UserEntity.swift */; };
+		3744122120AEC592003597A4 /* UIViewController + Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122020AEC592003597A4 /* UIViewController + Base.swift */; };
+		3744122320AEC5DB003597A4 /* NSObject + Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122220AEC5DB003597A4 /* NSObject + Base.swift */; };
+		3744122520AEC74C003597A4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122420AEC74C003597A4 /* Entity.swift */; };
+		3744122720AECAF7003597A4 /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122620AECAF7003597A4 /* GitHubRequest.swift */; };
+		3744122920AED060003597A4 /* gitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122820AED060003597A4 /* gitHubAPI.swift */; };
+		3744122C20AED171003597A4 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744122B20AED171003597A4 /* SearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +50,14 @@
 		3744121020AE5B6A003597A4 /* RepositoryListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryListViewController.storyboard; sourceTree = "<group>"; };
 		3744121320AEA18A003597A4 /* RepositoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableViewController.swift; sourceTree = "<group>"; };
 		3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryListTableViewController.xib; sourceTree = "<group>"; };
-		3744121920AEAEFA003597A4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3744121920AEAEFA003597A4 /* RepositoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryEntity.swift; sourceTree = "<group>"; };
+		3744121D20AEC51A003597A4 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		3744122020AEC592003597A4 /* UIViewController + Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Base.swift"; sourceTree = "<group>"; };
+		3744122220AEC5DB003597A4 /* NSObject + Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Base.swift"; sourceTree = "<group>"; };
+		3744122420AEC74C003597A4 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		3744122620AECAF7003597A4 /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
+		3744122820AED060003597A4 /* gitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitHubAPI.swift; sourceTree = "<group>"; };
+		3744122B20AED171003597A4 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +90,13 @@
 		374411EB20AD2AE3003597A4 /* coordinatorTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				3744121720AEA1A3003597A4 /* Object */,
+				374411EC20AD2AE3003597A4 /* AppDelegate.swift */,
+				3744122A20AED15A003597A4 /* API */,
+				3744121F20AEC547003597A4 /* Extension */,
+				3744121720AEA1A3003597A4 /* Entity */,
 				3744121220AEA15C003597A4 /* View */,
 				3744120720AD7DC2003597A4 /* ViewController */,
 				374411FE20AD4DF8003597A4 /* ApplicationCoordinator */,
-				374411EC20AD2AE3003597A4 /* AppDelegate.swift */,
 				374411EE20AD2AE3003597A4 /* ViewController.swift */,
 				374411F020AD2AE3003597A4 /* Main.storyboard */,
 				374411F320AD2AE5003597A4 /* Assets.xcassets */,
@@ -136,12 +152,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3744121720AEA1A3003597A4 /* Object */ = {
+		3744121720AEA1A3003597A4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3744121920AEAEFA003597A4 /* Repository.swift */,
+				3744122420AEC74C003597A4 /* Entity.swift */,
+				3744121920AEAEFA003597A4 /* RepositoryEntity.swift */,
+				3744121D20AEC51A003597A4 /* UserEntity.swift */,
 			);
-			path = Object;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		3744121820AEACBE003597A4 /* TableViewController */ = {
@@ -151,6 +169,25 @@
 				3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		3744121F20AEC547003597A4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3744122020AEC592003597A4 /* UIViewController + Base.swift */,
+				3744122220AEC5DB003597A4 /* NSObject + Base.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3744122A20AED15A003597A4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3744122620AECAF7003597A4 /* GitHubRequest.swift */,
+				3744122820AED060003597A4 /* gitHubAPI.swift */,
+				3744122B20AED171003597A4 /* SearchResponse.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,14 +266,21 @@
 			files = (
 				3744121520AEA18A003597A4 /* RepositoryListTableViewController.swift in Sources */,
 				3744120F20AE5B4C003597A4 /* RepositoryListViewController.swift in Sources */,
+				3744122520AEC74C003597A4 /* Entity.swift in Sources */,
 				3744120920AD7DF5003597A4 /* LoginViewController.swift in Sources */,
 				3744120620AD7692003597A4 /* LoginCoordinator.swift in Sources */,
 				374411EF20AD2AE3003597A4 /* ViewController.swift in Sources */,
 				374411ED20AD2AE3003597A4 /* AppDelegate.swift in Sources */,
+				3744122920AED060003597A4 /* gitHubAPI.swift in Sources */,
 				3744120020AD4E20003597A4 /* Coordinator.swift in Sources */,
-				3744121A20AEAEFA003597A4 /* Repository.swift in Sources */,
+				3744122320AEC5DB003597A4 /* NSObject + Base.swift in Sources */,
+				3744121A20AEAEFA003597A4 /* RepositoryEntity.swift in Sources */,
+				3744122720AECAF7003597A4 /* GitHubRequest.swift in Sources */,
+				3744122C20AED171003597A4 /* SearchResponse.swift in Sources */,
 				3744120420AD765B003597A4 /* ListCoordinator.swift in Sources */,
 				3744120220AD4EAA003597A4 /* ApplicationCoordinator.swift in Sources */,
+				3744121E20AEC51A003597A4 /* UserEntity.swift in Sources */,
+				3744122120AEC592003597A4 /* UIViewController + Base.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
