@@ -14,19 +14,23 @@ class ApplicationCoordinator: Coordinator {
 	let rootViewController: UITabBarController = UITabBarController()
 	
 	let listNavigationController = UINavigationController()
-	let starNavigationController = UINavigationController()
+	let loginNavigationController = UINavigationController()
 	
 	let listCoordinator: ListCoordinator
+	let loginCoordinator: LoginCoordinator
 	
 	init(window: UIWindow) {
 		self.window = window
-		let viewControllers = [listNavigationController]
+		let viewControllers = [loginNavigationController, listNavigationController]
+		self.rootViewController.setViewControllers(viewControllers, animated: false)
 		self.listCoordinator = ListCoordinator(presenter: listNavigationController)
-		self.rootViewController.setViewControllers(viewControllers, animated: false)	
+		self.loginCoordinator = LoginCoordinator(presenter: loginNavigationController)
 	}
 	
 	func start() {
 		window.rootViewController = rootViewController
+		listCoordinator.start()
+		loginCoordinator.start()
 		window.makeKeyAndVisible()
 	}
 	

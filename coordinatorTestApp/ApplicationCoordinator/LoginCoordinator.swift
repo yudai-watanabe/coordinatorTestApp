@@ -12,12 +12,18 @@ import UIKit
 class LoginCoordinator: Coordinator {
 	let presenter: UINavigationController
 	
+	private let loginViewController: LoginViewController
+	
 	init(presenter: UINavigationController) {
 		self.presenter = presenter
+		let storyboard: UIStoryboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+		let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+		self.loginViewController = viewController
+		self.loginViewController.title = "Login"
 	}
 	
 	func start() {
-		//presenter.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+		presenter.pushViewController(loginViewController, animated: false)
 	}
 	
 	

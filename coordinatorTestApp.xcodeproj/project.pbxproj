@@ -18,6 +18,11 @@
 		3744120620AD7692003597A4 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744120520AD7692003597A4 /* LoginCoordinator.swift */; };
 		3744120920AD7DF5003597A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744120820AD7DF5003597A4 /* LoginViewController.swift */; };
 		3744120C20AD7E18003597A4 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3744120B20AD7E18003597A4 /* LoginViewController.storyboard */; };
+		3744120F20AE5B4C003597A4 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744120E20AE5B4C003597A4 /* RepositoryListViewController.swift */; };
+		3744121120AE5B6A003597A4 /* RepositoryListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3744121020AE5B6A003597A4 /* RepositoryListViewController.storyboard */; };
+		3744121520AEA18A003597A4 /* RepositoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121320AEA18A003597A4 /* RepositoryListTableViewController.swift */; };
+		3744121620AEA18A003597A4 /* RepositoryListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */; };
+		3744121A20AEAEFA003597A4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3744121920AEAEFA003597A4 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		3744120520AD7692003597A4 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		3744120820AD7DF5003597A4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3744120B20AD7E18003597A4 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		3744120E20AE5B4C003597A4 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		3744121020AE5B6A003597A4 /* RepositoryListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryListViewController.storyboard; sourceTree = "<group>"; };
+		3744121320AEA18A003597A4 /* RepositoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableViewController.swift; sourceTree = "<group>"; };
+		3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryListTableViewController.xib; sourceTree = "<group>"; };
+		3744121920AEAEFA003597A4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 		374411EB20AD2AE3003597A4 /* coordinatorTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				3744121720AEA1A3003597A4 /* Object */,
+				3744121220AEA15C003597A4 /* View */,
 				3744120720AD7DC2003597A4 /* ViewController */,
 				374411FE20AD4DF8003597A4 /* ApplicationCoordinator */,
 				374411EC20AD2AE3003597A4 /* AppDelegate.swift */,
@@ -92,6 +104,7 @@
 		3744120720AD7DC2003597A4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3744120D20AE5B05003597A4 /* RepositoryList */,
 				3744120A20AD7DFE003597A4 /* Login */,
 			);
 			path = ViewController;
@@ -104,6 +117,40 @@
 				3744120B20AD7E18003597A4 /* LoginViewController.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		3744120D20AE5B05003597A4 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				3744120E20AE5B4C003597A4 /* RepositoryListViewController.swift */,
+				3744121020AE5B6A003597A4 /* RepositoryListViewController.storyboard */,
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		3744121220AEA15C003597A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3744121820AEACBE003597A4 /* TableViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3744121720AEA1A3003597A4 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				3744121920AEAEFA003597A4 /* Repository.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		3744121820AEACBE003597A4 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3744121320AEA18A003597A4 /* RepositoryListTableViewController.swift */,
+				3744121420AEA18A003597A4 /* RepositoryListTableViewController.xib */,
+			);
+			path = TableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +214,8 @@
 				374411F720AD2AE5003597A4 /* LaunchScreen.storyboard in Resources */,
 				374411F420AD2AE5003597A4 /* Assets.xcassets in Resources */,
 				374411F220AD2AE3003597A4 /* Main.storyboard in Resources */,
+				3744121620AEA18A003597A4 /* RepositoryListTableViewController.xib in Resources */,
+				3744121120AE5B6A003597A4 /* RepositoryListViewController.storyboard in Resources */,
 				3744120C20AD7E18003597A4 /* LoginViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,11 +227,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3744121520AEA18A003597A4 /* RepositoryListTableViewController.swift in Sources */,
+				3744120F20AE5B4C003597A4 /* RepositoryListViewController.swift in Sources */,
 				3744120920AD7DF5003597A4 /* LoginViewController.swift in Sources */,
 				3744120620AD7692003597A4 /* LoginCoordinator.swift in Sources */,
 				374411EF20AD2AE3003597A4 /* ViewController.swift in Sources */,
 				374411ED20AD2AE3003597A4 /* AppDelegate.swift in Sources */,
 				3744120020AD4E20003597A4 /* Coordinator.swift in Sources */,
+				3744121A20AEAEFA003597A4 /* Repository.swift in Sources */,
 				3744120420AD765B003597A4 /* ListCoordinator.swift in Sources */,
 				3744120220AD4EAA003597A4 /* ApplicationCoordinator.swift in Sources */,
 			);
