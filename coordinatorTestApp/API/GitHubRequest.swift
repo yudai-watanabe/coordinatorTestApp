@@ -14,11 +14,12 @@ enum HTTPMethod: String {
 }
 
 protocol GitHubRequest {
+    associatedtype Response: Decodable
+    
 	var baseUrl: URL { get }
 	var path: String { get }
 	var method: HTTPMethod { get }
 	var queryItems: [URLQueryItem] { get }
-	var body: Encodable? { get }
 }
 
 extension GitHubRequest {

@@ -13,6 +13,9 @@ class RepositoryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        let reposiory = GitHubAPI.SearchRepositories.init(keyword: "swift")
+
         // Do any additional setup after loading the view.
     }
 
