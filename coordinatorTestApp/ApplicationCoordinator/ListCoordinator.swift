@@ -18,8 +18,9 @@ class ListCoordinator: Coordinator {
 		self.presenter = presenter
 		let storyboard: UIStoryboard =  UIStoryboard(name: "RepositoryListViewController", bundle: nil)
 		let viewController = storyboard.instantiateViewController(withIdentifier: "RepositoryListViewController") as! RepositoryListViewController
+        self.presenter.navigationBar.prefersLargeTitles = true
 		self.listViewController = viewController
-		self.listViewController.title = "Repositorys"
+		self.listViewController.title = "Repositories"
 	}
 	
 	func start() {

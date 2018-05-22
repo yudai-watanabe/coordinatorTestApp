@@ -10,12 +10,26 @@ import UIKit
 
 class RepositoryListViewController: UIViewController {
 
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        let reposiory = GitHubAPI.SearchRepositories.init(keyword: "swift")
+        self.navigationItem.searchController = searchController
 
+        let client = GitHubClient()
+        let request = GitHubAPI.SearchRepositories(keyword: "swift")
+        
+        client.send(request: request){ result in
+            switch result {
+            case let .success(response):
+                for item in response.items {
+                    print(item)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
