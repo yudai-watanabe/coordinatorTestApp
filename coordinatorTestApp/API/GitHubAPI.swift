@@ -11,8 +11,6 @@ import Foundation
 final class GitHubAPI {
     struct SearchRepositories: GitHubRequest {
         
-        let keyword: String
-        
         typealias Response = SearchResponse<Repository>
         
         var method: HTTPMethod {
@@ -24,7 +22,10 @@ final class GitHubAPI {
 		}
 		
 		var queryItems: [URLQueryItem] {
-			return  [URLQueryItem(name: "q", value: keyword)]
+			return  [
+                URLQueryItem(name: "q", value: "language:swift"),
+                URLQueryItem(name: "sort", value: "stars"),
+            ]
 		}
 		
 	}

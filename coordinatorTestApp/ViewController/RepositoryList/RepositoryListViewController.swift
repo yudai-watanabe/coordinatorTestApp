@@ -7,24 +7,40 @@
 //
 
 import UIKit
+import Foundation
+import SafariServices
 
 class RepositoryListViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let repositryTableViewCell = RepositryTableViewCell()
+    
+    var repostories: Array<Repository> = []
 
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.searchController = searchController
+        //self.navigationItem.searchController = searchController
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: repositryTableViewCell.id, bundle: nil),
+                           forCellReuseIdentifier: repositryTableViewCell.id)
 
         let client = GitHubClient()
-        let request = GitHubAPI.SearchRepositories(keyword: "swift")
+        let request = GitHubAPI.SearchRepositories()
         
-        client.send(request: request){ result in
+        client.send(request: request){[weak self] result in
             switch result {
             case let .success(response):
                 for item in response.items {
-                    print(item)
+                    self?.repostories.append(item)
+                }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
                 }
             case let .failure(error):
                 print(error)
@@ -38,15 +54,31 @@ class RepositoryListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension RepositoryListViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: RepositryTableViewCell = tableView.dequeueReusableCell(withIdentifier: repositryTableViewCell.id , for: indexPath) as! RepositryTableViewCell
+        cell.repository = repostories[indexPath.row]
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repostories.count
+    }
+    
+}
+
+extension RepositoryListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = repostories[indexPath.row].url
+        let safariVC = SFSafariViewController(url: NSURL(string: url)! as URL)
+        self.present(safariVC, animated: true, completion: nil)
+    }
+    
+    
+}
+
